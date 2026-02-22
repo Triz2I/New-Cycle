@@ -9,13 +9,15 @@ body{
   background:white;
 }
 
-/* HEADER melhorado mas mantendo estrutura */
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 40px;
-  background:white;
+
+  /* NOVA COR CLARA COM CONTRASTE PARA LOGO BRANCA */
+  background:#efe9ff;   /* lilás claríssimo elegante */
+
   box-shadow:0 2px 10px rgba(0,0,0,0.06);
   position:sticky;
   top:0;
