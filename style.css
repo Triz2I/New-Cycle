@@ -9,65 +9,103 @@ body{
   background:white;
 }
 
+/* HEADER melhorado mas mantendo estrutura */
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 40px;
   background:white;
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
+/* DIMINUIR LOGO SUPERIOR ESQUERDA */
+#mainLogo{
+  height:46px;   /* pode ajustar 40–50 se quiser */
+  width:auto;
+  display:block;
+}
+
+/* menu com animação suave */
 nav a{
   margin:0 15px;
   text-decoration:none;
   color:#555;
   font-weight:600;
+  transition:.25s;
 }
 
-nav a:hover{color:var(--lilas2)}
+nav a:hover{
+  color:var(--lilas2);
+}
 
+/* HERO mais suave */
 .hero{
   background:linear-gradient(90deg,var(--lilas),white);
   padding:100px 40px;
 }
 
+/* BOTÕES com sombra leve */
 .hero button, .card button{
   background:var(--lilas2);
   border:none;
   color:white;
   padding:12px 20px;
-  border-radius:10px;
+  border-radius:12px;
   cursor:pointer;
   transition:.3s;
 }
-.hero button:hover,.card button:hover{transform:scale(1.05)}
 
+.hero button:hover,.card button:hover{
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+}
+
+/* categorias */
 .cat-grid{
   display:flex;
   gap:15px;
   flex-wrap:wrap;
 }
+
 .cat-grid div{
   background:#f3ecff;
   padding:20px;
-  border-radius:14px;
+  border-radius:16px;
+  transition:.25s;
 }
 
+/* leve efeito moderno */
+.cat-grid div:hover{
+  transform:translateY(-4px);
+}
+
+/* produtos */
 .products .grid{
   display:flex;
   gap:30px;
   flex-wrap:wrap;
 }
+
+/* card com sombra melhor */
 .card{
   width:250px;
   background:white;
   border-radius:18px;
   padding:15px;
-  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
   text-align:center;
+  transition:.3s;
 }
 
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* PROMO */
 .promo{
   background:var(--lilas);
   padding:40px;
@@ -75,31 +113,42 @@ nav a:hover{color:var(--lilas2)}
   color:white;
 }
 
-.about, .products, .cats{padding:60px 40px}
+/* seções */
+.about, .products, .cats{
+  padding:60px 40px;
+}
 
+/* footer */
 footer{
   background:#faf7ff;
   padding:30px;
   text-align:center;
 }
 
-/* acessibilidade */
+
+/* ========================= */
+/* ACESSIBILIDADE AJUSTADA */
+/* ========================= */
+
+/* BOTÃO SUBIU */
 .a11y-btn{
   position:fixed;
   right:20px;
-  bottom:20px;
+  top:20px;   /* antes era bottom */
   padding:15px;
   border:none;
   border-radius:50px;
   background:#6d39d8;
   color:white;
   z-index:1000;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
 }
 
+/* painel acompanha botão */
 .a11y-panel{
   position:fixed;
   right:20px;
-  bottom:80px;
+  top:80px;   /* acompanha botão */
   background:white;
   padding:20px;
   border-radius:14px;
@@ -107,14 +156,21 @@ footer{
   display:none;
 }
 
-.high-contrast{background:black;color:white}
-.reading-mode{max-width:700px;margin:auto;font-size:20px}
-
-@media(max-width:800px){
-header{flex-direction:column}
-.products .grid{justify-content:center}
+/* modos */
+.high-contrast{
+  background:black;
+  color:white;
 }
-</style>
+
+.reading-mode{
+  max-width:700px;
+  margin:auto;
+  font-size:20px;
+}
 
 
-
+/* RESPONSIVO */
+@media(max-width:800px){
+  header{flex-direction:column}
+  .products .grid{justify-content:center}
+}
