@@ -16,7 +16,7 @@ header{
   padding:15px 40px;
 
   /* NOVA COR CLARA COM CONTRASTE PARA LOGO BRANCA */
-  background:#efe9ff;   /* lilás claríssimo elegante */
+  background:linear-gradient(90deg,#efe9ff,#ffffff);
 
   box-shadow:0 2px 10px rgba(0,0,0,0.06);
   position:sticky;
