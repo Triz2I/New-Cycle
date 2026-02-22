@@ -24,9 +24,8 @@ header{
   z-index:999;
 }
 
-/* DIMINUIR LOGO SUPERIOR ESQUERDA */
 #mainLogo{
-  height:46px;   /* pode ajustar 40–50 se quiser */
+  height:64px;   /* tamanho ideal visível sem exagero */
   width:auto;
   display:block;
 }
