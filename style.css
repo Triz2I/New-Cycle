@@ -13,7 +13,7 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 40px;
+  padding:10px 40px;
 
   /* NOVA COR CLARA COM CONTRASTE PARA LOGO BRANCA */
   background:linear-gradient(90deg,#efe9ff,#ffffff);
