@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Cosméticos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOTÃO ACESSIBILIDADE -->
+<button id="openA11y" class="a11y-btn">Acessibilidade</button>
+
+<div id="a11yPanel" class="a11y-panel">
+  <h3>Acessibilidade</h3>
+  <button onclick="changeFont(1)">A+</button>
+  <button onclick="changeFont(-1)">A-</button>
+  <button onclick="toggleContrast()">Alto contraste</button>
+  <button onclick="toggleReading()">Modo leitura</button>
+  <button onclick="enableKeyboardNav()">Navegação teclado</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <img src="https://via.placeholder.com/140x60?text=LOGO" alt="Logo da marca" id="mainLogo">
+  </div>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#prod">Produtos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <a href="#">Carrinho</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Beleza que inspira confiança</h1>
+    <p>Descubra cosméticos premium feitos para valorizar você.</p>
+    <button>Ver produtos</button>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<section class="cats">
+  <h2>Categorias</h2>
+  <div class="cat-grid">
+    <div>Maquiagem</div>
+    <div>Skincare</div>
+    <div>Perfumes</div>
+    <div>Kits</div>
+    <div>Lançamentos</div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="prod" class="products">
+  <h2>Produtos</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Batom rosé" class="prodimg">
+      <h4>Batom Rosé</h4>
+      <p>R$ 39,90</p>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Base líquida" class="prodimg">
+      <h4>Base Líquida</h4>
+      <p>R$ 79,90</p>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="Perfume floral" class="prodimg">
+      <h4>Perfume Floral</h4>
+      <p>R$ 129,90</p>
+      <button>Comprar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo">
+  <h2>Promoções</h2>
+  <p>Até 40% OFF em kits selecionados</p>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="about">
+  <h2>Sobre a marca</h2>
+  <p>Somos uma marca dedicada a oferecer cosméticos sofisticados, acessíveis e pensados para realçar a beleza natural com qualidade premium.</p>
+</section>
+
+<footer id="contato">
+  <p>Contato: contato@lojacosmeticos.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
