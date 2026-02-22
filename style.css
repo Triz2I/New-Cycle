@@ -54,7 +54,7 @@ nav a:hover{
 .hero button, .card button{
   background:var(--lilas2);
   border:none;
-  color:white;
+  color:rgb(240, 200, 241);
   padding:12px 20px;
   border-radius:12px;
   cursor:pointer;
