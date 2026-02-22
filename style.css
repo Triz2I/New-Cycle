@@ -1,0 +1,120 @@
+:root{
+  --lilas:#c8a2ff;
+  --lilas2:#a97cff;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:white;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+nav a{
+  margin:0 15px;
+  text-decoration:none;
+  color:#555;
+  font-weight:600;
+}
+
+nav a:hover{color:var(--lilas2)}
+
+.hero{
+  background:linear-gradient(90deg,var(--lilas),white);
+  padding:100px 40px;
+}
+
+.hero button, .card button{
+  background:var(--lilas2);
+  border:none;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.3s;
+}
+.hero button:hover,.card button:hover{transform:scale(1.05)}
+
+.cat-grid{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.cat-grid div{
+  background:#f3ecff;
+  padding:20px;
+  border-radius:14px;
+}
+
+.products .grid{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+}
+.card{
+  width:250px;
+  background:white;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.promo{
+  background:var(--lilas);
+  padding:40px;
+  text-align:center;
+  color:white;
+}
+
+.about, .products, .cats{padding:60px 40px}
+
+footer{
+  background:#faf7ff;
+  padding:30px;
+  text-align:center;
+}
+
+/* acessibilidade */
+.a11y-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  padding:15px;
+  border:none;
+  border-radius:50px;
+  background:#6d39d8;
+  color:white;
+  z-index:1000;
+}
+
+.a11y-panel{
+  position:fixed;
+  right:20px;
+  bottom:80px;
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  display:none;
+}
+
+.high-contrast{background:black;color:white}
+.reading-mode{max-width:700px;margin:auto;font-size:20px}
+
+@media(max-width:800px){
+header{flex-direction:column}
+.products .grid{justify-content:center}
+}
+</style>
+
+
+
