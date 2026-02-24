@@ -1,105 +1,324 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Cycle</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+
+<script>
+window.onload=function(){
+
+const btn=document.getElementById('openA11y');
+const panel=document.getElementById('a11yPanel');
+
+btn.onclick=()=>panel.style.display=
+panel.style.display==='block'?'none':'block';
+
+let font=0;
+window.changeFont=function(v){
+  font+=v;
+  document.body.style.fontSize=(16+font)+'px';
+}
+
+window.toggleContrast=function(){
+ document.body.classList.toggle('high-contrast');
+}
+
+window.toggleReading=function(){
+ document.body.classList.toggle('reading-mode');
+}
+
+window.enableKeyboardNav=function(){
+ alert('Use TAB para navegar pelos elementos do site.');
+}
+
+document.querySelectorAll('img').forEach(img=>{
+ if(!img.alt || img.alt==='') img.alt='imagem de produto cosmético';
+});
+
+}
+</script>
+
+<style>
+:root{
+  --lilas:#c8a2ff;
+  --lilas2:#a97cff;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:white;
+}
+
+/* HEADER organizado em grade */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 40px;
+  background:linear-gradient(90deg,#efe9ff,#ffffff);
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+/* LOGO tamanho profissional real */
+#mainLogo{
+  height:95px;   /* ← ajustado para ficar visível e elegante */
+  width:auto;
+  display:block;
+}
+
+/* MENU alinhado */
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:600;
+  transition:.25s;
+}
+
+nav a:hover{color:var(--lilas2);}
+
+/* HERO */
+.hero{
+  background:linear-gradient(90deg,var(--lilas),white);
+  padding:100px 40px;
+}
+
+/* BOTÕES */
+.hero button,.card button{
+  background:var(--lilas2);
+  border:none;
+  color:white;
+  padding:12px 20px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.hero button:hover,.card button:hover{
+  transform:scale(1.05);
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+}
+
+/* categorias */
+.cat-grid{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.cat-grid div{
+  background:#f3ecff;
+  padding:20px;
+  border-radius:16px;
+  transition:.25s;
+}
+.cat-grid div:hover{transform:translateY(-4px);}
+
+/* produtos */
+.products .grid{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+/* cards */
+.card{
+  width:250px;
+  background:white;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px);}
+
+/* NOVA GALERIA PROFISSIONAL */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.gallery img{
+width:100%;
+border-radius:14px;
+}
+
+/* PROMO */
+.promo{
+  background:var(--lilas);
+  padding:40px;
+  text-align:center;
+  color:white;
+}
+
+.about,.products,.cats{padding:60px 40px;}
+
+footer{
+  background:#faf7ff;
+  padding:30px;
+  text-align:center;
+}
+
+/* BOTÃO ACESSIBILIDADE alinhado com header */
+.a11y-btn{
+  position:fixed;
+  right:18px;
+  top:110px; /* ↓ abaixo do header */
+  padding:15px;
+  border:none;
+  border-radius:50px;
+  background:#6d39d8;
+  color:white;
+  z-index:1000;
+}
+
+.a11y-panel{
+  position:fixed;
+  right:18px;
+  top:170px;
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  display:none;
+}
+
+.high-contrast{background:black;color:white;}
+.reading-mode{max-width:700px;margin:auto;font-size:20px;}
+
+@media(max-width:800px){
+header{flex-direction:column}
+.products .grid{justify-content:center}
+}
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Cycle</title>
 </head>
+
 <body>
 
 <button id="openA11y" class="a11y-btn">Acessibilidade</button>
 
 <div id="a11yPanel" class="a11y-panel">
-  <h3>Acessibilidade</h3>
-  <button onclick="changeFont(1)">A+</button>
-  <button onclick="changeFont(-1)">A-</button>
-  <button onclick="toggleContrast()">Alto contraste</button>
-  <button onclick="toggleReading()">Modo leitura</button>
-  <button onclick="enableKeyboardNav()">Navegação teclado</button>
+<h3>Acessibilidade</h3>
+<button onclick="changeFont(1)">A+</button>
+<button onclick="changeFont(-1)">A-</button>
+<button onclick="toggleContrast()">Alto contraste</button>
+<button onclick="toggleReading()">Modo leitura</button>
+<button onclick="enableKeyboardNav()">Navegação teclado</button>
 </div>
 
 <header>
-  <div class="logo-area">
-    <img src="img/logodanc.png" alt="Logo da marca" id="mainLogo">
-  </div>
-  <nav>
-    <a href="#">Início</a>
-    <a href="#prod">Produtos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-    <a href="#">Carrinho</a>
-  </nav>
+<div class="logo-area">
+<img src="img/logodanc.png" alt="Logo da marca" id="mainLogo">
+</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#prod">Produtos</a>
+<a href="#sobre">Sobre</a>
+<a href="#contato">Contato</a>
+<a href="#">Carrinho</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>Beleza que inspira confiança</h1>
-    <p>Descubra cosméticos premium feitos para valorizar você.</p>
-    <button>Ver produtos</button>
-  </div>
+<div class="hero-text">
+<h1>Beleza que inspira confiança</h1>
+<p>Descubra cosméticos premium feitos para valorizar você.</p>
+<button>Ver produtos</button>
+</div>
 </section>
 
 <!-- CATEGORIAS -->
 <section class="cats">
-  <h2>Categorias</h2>
-  <div class="cat-grid">
-    <div>Kit para crianças</div>
-    <div>Kit para pré-adolescentes</div>
-    <div>Kit para adolescentes</div>
-    <div>Kit para adultos</div>
-    <div>Lançamentos</div>
-  </div>
+<h2>Categorias</h2>
+<div class="cat-grid">
+<div>Kit para crianças</div>
+<div>Kit para pré-adolescentes</div>
+<div>Kit para adolescentes</div>
+<div>Kit para adultos</div>
+<div>Lançamentos</div>
+</div>
 </section>
 
 <!-- PRODUTOS -->
 <section id="prod" class="products">
-  <h2>Produtos</h2>
-  <div class="grid">
+<h2>Produtos</h2>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Batom rosé" class="prodimg">
-      <h4>Creme</h4>
-      <p>R$ 39,90</p>
-      <button>Comprar</button>
-    </div>
+<div class="grid">
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h4>Creme</h4>
+<p>R$ 39,90</p>
+<button>Comprar</button>
+</div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Base líquida" class="prodimg">
-      <h4>Perfume NC</h4>
-      <p>R$ 79,90</p>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h4>Perfume NC</h4>
+<p>R$ 79,90</p>
+<button>Comprar</button>
+</div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="Perfume floral" class="prodimg">
-      <h4>Perfume Floral NC</h4>
-      <p>R$ 129,90</p>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h4>Perfume Floral NC</h4>
+<p>R$ 129,90</p>
+<button>Comprar</button>
+</div>
+</div>
 
-  </div>
+<!-- NOVA GALERIA -->
+<h2 style="margin-top:60px">Galeria de Beleza</h2>
+<div class="gallery">
+<img src="https://via.placeholder.com/300">
+<img src="https://via.placeholder.com/300">
+<img src="https://via.placeholder.com/300">
+<img src="https://via.placeholder.com/300">
+</div>
+
 </section>
 
 <!-- PROMO -->
 <section class="promo">
-  <h2>Promoções</h2>
-  <p>Até 40% OFF em kits selecionados</p>
+<h2>Promoções</h2>
+<p>Até 40% OFF em kits selecionados</p>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="about">
-  <h2>Sobre a marca</h2>
-  <p>Somos uma marca dedicada a oferecer cosméticos sofisticados, acessíveis e pensados para realçar a beleza natural com qualidade premium.</p>
+<h2>Sobre a marca</h2>
+<p>Somos uma marca dedicada a oferecer cosméticos sofisticados, acessíveis e pensados para realçar a beleza natural com qualidade premium.</p>
+
+<!-- MINI MAPA -->
+<h3 style="margin-top:40px">Nosso endereço</h3>
+
+<iframe
+width="100%"
+height="260"
+style="border:0;border-radius:18px"
+loading="lazy"
+src="https://maps.google.com/maps?q=Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
 </section>
 
 <footer id="contato">
-  <p>Contato: </p>
+<p>Contato:</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
-
-
