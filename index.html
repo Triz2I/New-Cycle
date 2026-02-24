@@ -47,15 +47,17 @@ nav a{
 
 nav a:hover{color:var(--lilas2);}
 
-/* BOTÕES TOPO */
+/* BOTÃO CARRINHO (MENOS DESTACADO) */
 .top-btn{
- background:var(--lilasEscuro);
+ background:#eee;
  border:none;
- color:white;
+ color:#444;
  padding:8px 16px;
  border-radius:20px;
  cursor:pointer;
+ transition:.2s;
 }
+.top-btn:hover{background:#ddd;}
 
 /* HERO */
 .hero{
@@ -74,7 +76,6 @@ button{
 
 /* CATEGORIAS */
 .cat-grid{display:flex;gap:15px;flex-wrap:wrap;}
-
 .cat-grid div{
  background:#f3ecff;
  padding:20px;
@@ -176,9 +177,17 @@ footer{
  display:none;
 }
 
+/* ⭐ ALTO CONTRASTE AGORA COM TEXTO PRETO ⭐ */
 body.high-contrast{
  background:#2b2147;
- color:white;
+ color:black;
+}
+
+body.high-contrast .card,
+body.high-contrast .cat-grid div,
+body.high-contrast footer,
+body.high-contrast .promo{
+ color:black;
 }
 
 .reading-mode{
@@ -315,16 +324,31 @@ function toggleCart(){
 function add(name,price){
 
  total+=price;
-
  document.getElementById('total').innerText=total.toFixed(2);
 
  const div=document.createElement('div');
  div.className='cart-item';
- div.innerHTML=name+" — R$ "+price.toFixed(2);
+
+ div.innerHTML=
+ `
+ ${name} — R$ ${price.toFixed(2)}
+ <br>
+ <button onclick="removeItem(this,${price})">Remover</button>
+ `;
 
  document.getElementById('cartItems').appendChild(div);
 
  toggleCart();
+}
+
+function removeItem(btn,price){
+
+ total-=price;
+ if(total<0) total=0;
+
+ document.getElementById('total').innerText=total.toFixed(2);
+
+ btn.parentElement.remove();
 }
 
 /* ACESSIBILIDADE */
