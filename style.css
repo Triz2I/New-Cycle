@@ -25,7 +25,7 @@ header{
 }
 
 #mainLogo{
-  height: 230px;  /* tamanho ideal visível sem exagero */
+  height: 230px;
   width:auto;
   display:block;
 }
@@ -79,7 +79,6 @@ nav a:hover{
   transition:.25s;
 }
 
-/* leve efeito moderno */
 .cat-grid div:hover{
   transform:translateY(-4px);
 }
@@ -135,7 +134,7 @@ footer{
 .a11y-btn{
   position:fixed;
   right:20px;
-  top:20px;   /* antes era bottom */
+  top:20px;
   padding:15px;
   border:none;
   border-radius:50px;
@@ -149,7 +148,7 @@ footer{
 .a11y-panel{
   position:fixed;
   right:20px;
-  top:80px;   /* acompanha botão */
+  top:80px;
   background:white;
   padding:20px;
   border-radius:14px;
@@ -157,18 +156,35 @@ footer{
   display:none;
 }
 
-/* modos */
+/* ⭐⭐⭐ NOVO ALTO CONTRASTE HARMÔNICO ⭐⭐⭐ */
 .high-contrast{
-  background:black;
+  background:#2b2147;
   color:white;
 }
 
+/* header no contraste */
+.high-contrast header{
+  background:#3a2d63;
+}
+
+/* cards */
+.high-contrast .card{
+  background:#3a2d63;
+  color:white;
+}
+
+/* categorias */
+.high-contrast .cat-grid div{
+  background:#3a2d63;
+  color:white;
+}
+
+/* leitura */
 .reading-mode{
   max-width:700px;
   margin:auto;
   font-size:20px;
 }
-
 
 /* RESPONSIVO */
 @media(max-width:800px){
