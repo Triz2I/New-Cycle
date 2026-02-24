@@ -2,6 +2,8 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Cycle</title>
 
 <script>
 window.onload=function(){
@@ -13,6 +15,7 @@ btn.onclick=()=>panel.style.display=
 panel.style.display==='block'?'none':'block';
 
 let font=0;
+
 window.changeFont=function(v){
   font+=v;
   document.body.style.fontSize=(16+font)+'px';
@@ -26,21 +29,15 @@ window.toggleReading=function(){
  document.body.classList.toggle('reading-mode');
 }
 
-window.enableKeyboardNav=function(){
- alert('Use TAB para navegar pelos elementos do site.');
-}
-
-document.querySelectorAll('img').forEach(img=>{
- if(!img.alt || img.alt==='') img.alt='imagem de produto cosmético';
-});
-
 }
 </script>
 
 <style>
+
 :root{
   --lilas:#c8a2ff;
   --lilas2:#a97cff;
+  --lilasEscuro:#7c3aed;
 }
 
 body{
@@ -49,7 +46,7 @@ body{
   background:white;
 }
 
-/* HEADER organizado em grade */
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
@@ -62,14 +59,14 @@ header{
   z-index:999;
 }
 
-/* LOGO tamanho profissional real */
+/* LOGO */
 #mainLogo{
-  height:95px;   /* ← ajustado para ficar visível e elegante */
+  height:95px;
   width:auto;
   display:block;
 }
 
-/* MENU alinhado */
+/* NAV */
 nav{
   display:flex;
   align-items:center;
@@ -83,7 +80,60 @@ nav a{
   transition:.25s;
 }
 
-nav a:hover{color:var(--lilas2);}
+nav a:hover{
+  color:var(--lilas2);
+}
+
+/* BOTÃO ACESSIBILIDADE NO TOPO */
+.a11y-btn{
+  background:var(--lilasEscuro);
+  border:none;
+  color:white;
+  padding:8px 16px;
+  border-radius:20px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.a11y-btn:hover{
+  background:var(--lilas2);
+}
+
+/* PAINEL ESTÉTICO */
+.a11y-panel{
+  position:absolute;
+  right:40px;
+  top:110px;
+  background:#f8f5ff;
+  padding:18px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  display:none;
+  width:200px;
+}
+
+.a11y-panel h3{
+  margin-top:0;
+  color:var(--lilasEscuro);
+}
+
+.a11y-panel button{
+  width:100%;
+  margin:6px 0;
+  padding:8px;
+  border:none;
+  border-radius:10px;
+  background:white;
+  color:#555;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.a11y-panel button:hover{
+  background:var(--lilas);
+  color:white;
+}
 
 /* HERO */
 .hero{
@@ -91,7 +141,6 @@ nav a:hover{color:var(--lilas2);}
   padding:100px 40px;
 }
 
-/* BOTÕES */
 .hero button,.card button{
   background:var(--lilas2);
   border:none;
@@ -120,7 +169,10 @@ nav a:hover{color:var(--lilas2);}
   border-radius:16px;
   transition:.25s;
 }
-.cat-grid div:hover{transform:translateY(-4px);}
+
+.cat-grid div:hover{
+  transform:translateY(-4px);
+}
 
 /* produtos */
 .products .grid{
@@ -129,7 +181,6 @@ nav a:hover{color:var(--lilas2);}
   flex-wrap:wrap;
 }
 
-/* cards */
 .card{
   width:250px;
   background:white;
@@ -139,19 +190,21 @@ nav a:hover{color:var(--lilas2);}
   text-align:center;
   transition:.3s;
 }
-.card:hover{transform:translateY(-6px);}
 
-/* NOVA GALERIA PROFISSIONAL */
+.card:hover{
+  transform:translateY(-6px);
+}
+
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-padding:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  padding:40px;
 }
 
 .gallery img{
-width:100%;
-border-radius:14px;
+  width:100%;
+  border-radius:14px;
 }
 
 /* PROMO */
@@ -162,7 +215,9 @@ border-radius:14px;
   color:white;
 }
 
-.about,.products,.cats{padding:60px 40px;}
+.about,.products,.cats{
+  padding:60px 40px;
+}
 
 footer{
   background:#faf7ff;
@@ -170,55 +225,26 @@ footer{
   text-align:center;
 }
 
-/* BOTÃO ACESSIBILIDADE alinhado com header */
-.a11y-btn{
-  position:fixed;
-  right:18px;
-  top:110px; /* ↓ abaixo do header */
-  padding:15px;
-  border:none;
-  border-radius:50px;
-  background:#6d39d8;
+.high-contrast{
+  background:black;
   color:white;
-  z-index:1000;
 }
 
-.a11y-panel{
-  position:fixed;
-  right:18px;
-  top:170px;
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.2);
-  display:none;
+.reading-mode{
+  max-width:700px;
+  margin:auto;
+  font-size:20px;
 }
-
-.high-contrast{background:black;color:white;}
-.reading-mode{max-width:700px;margin:auto;font-size:20px;}
 
 @media(max-width:800px){
 header{flex-direction:column}
 .products .grid{justify-content:center}
 }
-</style>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Cycle</title>
+</style>
 </head>
 
 <body>
-
-<button id="openA11y" class="a11y-btn">Acessibilidade</button>
-
-<div id="a11yPanel" class="a11y-panel">
-<h3>Acessibilidade</h3>
-<button onclick="changeFont(1)">A+</button>
-<button onclick="changeFont(-1)">A-</button>
-<button onclick="toggleContrast()">Alto contraste</button>
-<button onclick="toggleReading()">Modo leitura</button>
-<button onclick="enableKeyboardNav()">Navegação teclado</button>
-</div>
 
 <header>
 <div class="logo-area">
@@ -231,8 +257,17 @@ header{flex-direction:column}
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 <a href="#">Carrinho</a>
+<button id="openA11y" class="a11y-btn">Acessibilidade</button>
 </nav>
 </header>
+
+<div id="a11yPanel" class="a11y-panel">
+<h3>Acessibilidade</h3>
+<button onclick="changeFont(1)">A+</button>
+<button onclick="changeFont(-1)">A-</button>
+<button onclick="toggleContrast()">Alto contraste</button>
+<button onclick="toggleReading()">Modo leitura</button>
+</div>
 
 <section class="hero">
 <div class="hero-text">
@@ -242,7 +277,6 @@ header{flex-direction:column}
 </div>
 </section>
 
-<!-- CATEGORIAS -->
 <section class="cats">
 <h2>Categorias</h2>
 <div class="cat-grid">
@@ -254,11 +288,10 @@ header{flex-direction:column}
 </div>
 </section>
 
-<!-- PRODUTOS -->
 <section id="prod" class="products">
 <h2>Produtos</h2>
-
 <div class="grid">
+
 <div class="card">
 <img src="https://via.placeholder.com/250">
 <h4>Creme</h4>
@@ -279,9 +312,9 @@ header{flex-direction:column}
 <p>R$ 129,90</p>
 <button>Comprar</button>
 </div>
+
 </div>
 
-<!-- NOVA GALERIA -->
 <h2 style="margin-top:60px">Galeria de Beleza</h2>
 <div class="gallery">
 <img src="https://via.placeholder.com/300">
@@ -292,18 +325,15 @@ header{flex-direction:column}
 
 </section>
 
-<!-- PROMO -->
 <section class="promo">
 <h2>Promoções</h2>
 <p>Até 40% OFF em kits selecionados</p>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre" class="about">
 <h2>Sobre a marca</h2>
 <p>Somos uma marca dedicada a oferecer cosméticos sofisticados, acessíveis e pensados para realçar a beleza natural com qualidade premium.</p>
 
-<!-- MINI MAPA -->
 <h3 style="margin-top:40px">Nosso endereço</h3>
 
 <iframe
