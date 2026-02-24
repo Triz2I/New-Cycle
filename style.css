@@ -156,27 +156,29 @@ footer{
   display:none;
 }
 
-/* ⭐⭐⭐ NOVO ALTO CONTRASTE HARMÔNICO ⭐⭐⭐ */
-.high-contrast{
+/* ⭐ ALTO CONTRASTE PREMIUM FUNCIONANDO ⭐ */
+
+body.high-contrast{
   background:#2b2147;
   color:white;
 }
 
-/* header no contraste */
-.high-contrast header{
+body.high-contrast header{
   background:#3a2d63;
 }
 
-/* cards */
-.high-contrast .card{
+body.high-contrast .card{
   background:#3a2d63;
   color:white;
 }
 
-/* categorias */
-.high-contrast .cat-grid div{
+body.high-contrast .cat-grid div{
   background:#3a2d63;
   color:white;
+}
+
+body.high-contrast footer{
+  background:#3a2d63;
 }
 
 /* leitura */
