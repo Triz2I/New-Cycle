@@ -7,6 +7,9 @@ body{
   margin:0;
   font-family:Segoe UI, sans-serif;
   background:white;
+
+  /* animação suave global */
+  transition:background .45s ease,color .45s ease;
 }
 
 header{
@@ -14,23 +17,22 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:10px 40px;
-
-  /* NOVA COR CLARA COM CONTRASTE PARA LOGO BRANCA */
   background:linear-gradient(90deg,#efe9ff,#ffffff);
-
   box-shadow:0 2px 10px rgba(0,0,0,0.06);
   position:sticky;
   top:0;
   z-index:999;
+
+  transition:background .45s ease;
 }
 
 #mainLogo{
-  height: 230px;
+  height:230px;
   width:auto;
   display:block;
 }
 
-/* menu com animação suave */
+/* menu */
 nav a{
   margin:0 15px;
   text-decoration:none;
@@ -43,17 +45,18 @@ nav a:hover{
   color:var(--lilas2);
 }
 
-/* HERO mais suave */
+/* HERO */
 .hero{
   background:linear-gradient(90deg,var(--lilas),white);
   padding:100px 40px;
+  transition:background .45s ease;
 }
 
-/* BOTÕES com sombra leve */
+/* BOTÕES */
 .hero button, .card button{
   background:var(--lilas2);
   border:none;
-  color:rgb(240, 200, 241);
+  color:white;
   padding:12px 20px;
   border-radius:12px;
   cursor:pointer;
@@ -76,7 +79,7 @@ nav a:hover{
   background:#f3ecff;
   padding:20px;
   border-radius:16px;
-  transition:.25s;
+  transition:.25s, background .45s ease;
 }
 
 .cat-grid div:hover{
@@ -90,7 +93,7 @@ nav a:hover{
   flex-wrap:wrap;
 }
 
-/* card com sombra melhor */
+/* card */
 .card{
   width:250px;
   background:white;
@@ -98,7 +101,7 @@ nav a:hover{
   padding:15px;
   box-shadow:0 6px 20px rgba(0,0,0,.08);
   text-align:center;
-  transition:.3s;
+  transition:.3s, background .45s ease, color .45s ease;
 }
 
 .card:hover{
@@ -111,6 +114,7 @@ nav a:hover{
   padding:40px;
   text-align:center;
   color:white;
+  transition:background .45s ease;
 }
 
 /* seções */
@@ -123,62 +127,105 @@ footer{
   background:#faf7ff;
   padding:30px;
   text-align:center;
+  transition:background .45s ease;
 }
 
 
 /* ========================= */
-/* ACESSIBILIDADE AJUSTADA */
+/* ⭐ BOTÃO NETFLIX STYLE ⭐ */
 /* ========================= */
 
-/* BOTÃO SUBIU */
 .a11y-btn{
-  position:fixed;
-  right:20px;
-  top:20px;
-  padding:15px;
-  border:none;
-  border-radius:50px;
-  background:#6d39d8;
-  color:white;
-  z-index:1000;
-  box-shadow:0 4px 14px rgba(0,0,0,.25);
+ position:fixed;
+ right:22px;
+ bottom:22px;
+ width:60px;
+ height:60px;
+ border-radius:50%;
+ border:none;
+ background:linear-gradient(135deg,#7c3aed,#a97cff);
+ color:white;
+ font-size:26px;
+ cursor:pointer;
+ z-index:9999;
+ box-shadow:0 8px 25px rgba(0,0,0,.35);
+ transition:.35s;
 }
 
-/* painel acompanha botão */
+.a11y-btn:hover{
+ transform:scale(1.12);
+ box-shadow:0 12px 35px rgba(0,0,0,.45);
+}
+
+/* painel animado */
 .a11y-panel{
-  position:fixed;
-  right:20px;
-  top:80px;
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.2);
-  display:none;
+ position:fixed;
+ right:22px;
+ bottom:95px;
+ background:white;
+ padding:20px;
+ border-radius:18px;
+ box-shadow:0 20px 45px rgba(0,0,0,.3);
+
+ opacity:0;
+ transform:translateY(20px) scale(.95);
+ pointer-events:none;
+ transition:.35s;
 }
 
-/* ⭐ ALTO CONTRASTE PREMIUM FUNCIONANDO ⭐ */
+/* aberto */
+.a11y-panel.open{
+ opacity:1;
+ transform:translateY(0) scale(1);
+ pointer-events:auto;
+}
+
+
+/* ========================================= */
+/* ⭐ ALTO CONTRASTE LILÁS PROFISSIONAL ⭐ */
+/* ========================================= */
 
 body.high-contrast{
-  background:#2b2147;
+  background:#140f24;
   color:white;
 }
 
-body.high-contrast header{
-  background:#3a2d63;
+body.high-contrast header{ background:#1c1533; }
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast p,
+body.high-contrast span{
+  color:white;
 }
 
 body.high-contrast .card{
-  background:#3a2d63;
-  color:black;
+  background:#221a3d;
+  color:white;
+  box-shadow:0 6px 20px rgba(0,0,0,.6);
 }
 
 body.high-contrast .cat-grid div{
-  background:#3a2d63;
-  color:black;
+  background:#221a3d;
+  color:white;
+}
+
+body.high-contrast .promo{
+  background:#2d2152;
 }
 
 body.high-contrast footer{
-  background:#3a2d63;
+  background:#1c1533;
+}
+
+body.high-contrast a{
+  color:#d8b4fe;
+}
+
+body.high-contrast button{
+  background:#8b5cf6;
 }
 
 /* leitura */

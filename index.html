@@ -221,7 +221,7 @@ body.high-contrast .promo{
 <a href="#contato">Contato</a>
 
 <button class="top-btn" onclick="toggleCart()">Carrinho</button>
-<button id="openA11y" class="a11y-btn">Acessibilidade</button>
+<button id="openA11y" class="a11y-btn">♿</button>
 </nav>
 
 </header>
@@ -356,8 +356,9 @@ function removeItem(btn,price){
 const btn=document.getElementById('openA11y');
 const panel=document.getElementById('a11yPanel');
 
-btn.onclick=()=>panel.style.display=
-panel.style.display==='block'?'none':'block';
+btn.onclick=()=>{
+ panel.classList.toggle('open');
+};
 
 let font=0;
 
