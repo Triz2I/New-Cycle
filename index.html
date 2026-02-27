@@ -169,16 +169,16 @@ footer{
  position:fixed;
  right:22px;
  bottom:22px;
- width:60px;
- height:60px;
- border-radius:50%;
+ padding:14px 22px;
+ border-radius:30px;
  border:none;
  background:linear-gradient(135deg,#7c3aed,#a97cff);
  color:white;
- font-size:26px;
+ font-size:15px;
+ font-weight:600;
  cursor:pointer;
  z-index:9999;
- box-shadow:0 8px 25px rgba(0,0,0,.35);
+ box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 /* painel */
@@ -247,13 +247,15 @@ body.high-contrast button{background:#8b5cf6;}
 <a href="#sobre">Sobre</a>
 <a href="#contato">Contato</a>
 
-<button class="top-btn" onclick="toggleCart()">Carrinho</button>
+<button class="top-btn" onclick="toggleCart()">
+Carrinho (<span id="cartCount">0</span>)
+</button>
 </nav>
 
 </header>
 
 <!-- BOTÃO FLUTUANTE -->
-<button id="openA11y" class="a11y-btn">♿</button>
+<button id="openA11y" class="a11y-btn">Acessibilidade</button>
 
 <!-- PAINEL -->
 <div id="a11yPanel" class="a11y-panel">
@@ -346,6 +348,7 @@ src="https://maps.google.com/maps?q=Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=em
 /* CART */
 
 let total=0;
+let count=0;
 
 function toggleCart(){
  document.getElementById('cart').classList.toggle('open');
@@ -354,7 +357,10 @@ function toggleCart(){
 function add(name,price){
 
  total+=price;
+ count++;
+
  document.getElementById('total').innerText=total.toFixed(2);
+ document.getElementById('cartCount').innerText=count;
 
  const div=document.createElement('div');
  div.className='cart-item';
@@ -372,9 +378,13 @@ function add(name,price){
 function removeItem(btn,price){
 
  total-=price;
+ count--;
+
  if(total<0) total=0;
+ if(count<0) count=0;
 
  document.getElementById('total').innerText=total.toFixed(2);
+ document.getElementById('cartCount').innerText=count;
 
  btn.parentElement.remove();
 }
@@ -400,8 +410,6 @@ function toggleContrast(){
 function toggleReading(){
  document.body.classList.toggle('reading-mode');
 }
-
-/* adiciona ALT automático */
 
 document.querySelectorAll('img').forEach(img=>{
  if(!img.alt || img.alt==='') img.alt='imagem de produto cosmético';
