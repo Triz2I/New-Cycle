@@ -181,8 +181,6 @@ footer{
  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-/* painel */
-
 .a11y-panel{
  position:fixed;
  right:22px;
@@ -201,8 +199,6 @@ footer{
  pointer-events:auto;
 }
 
-/* ================= CONTRASTE ================= */
-
 body.high-contrast{
  background:#140f24;
  color:white;
@@ -215,8 +211,6 @@ body.high-contrast .promo{background:#2d2152;}
 body.high-contrast footer{background:#1c1533;}
 body.high-contrast button{background:#8b5cf6;}
 
-/* leitura */
-
 .reading-mode{
  max-width:700px;
  margin:auto;
@@ -228,7 +222,6 @@ body.high-contrast button{background:#8b5cf6;}
 
 <body>
 
-<!-- CART -->
 <div id="cart" class="cart">
 <h2>🛍️ Carrinho</h2>
 <div id="cartItems"></div>
@@ -254,10 +247,8 @@ Carrinho (<span id="cartCount">0</span>)
 
 </header>
 
-<!-- BOTÃO FLUTUANTE -->
 <button id="openA11y" class="a11y-btn">Acessibilidade</button>
 
-<!-- PAINEL -->
 <div id="a11yPanel" class="a11y-panel">
 <h3>Acessibilidade</h3>
 <button onclick="changeFont(1)">A+</button>
@@ -367,26 +358,40 @@ function add(name,price){
 
  div.innerHTML=
  `${name} — R$ ${price.toFixed(2)}
- <br>
- <button onclick="removeItem(this,${price})">Remover</button>`;
+ <br><br>
+ <button onclick="changeQty(this,${price},-1)">-</button>
+ <span class="qty">1</span>
+ <button onclick="changeQty(this,${price},1)">+</button>
+ `;
 
  document.getElementById('cartItems').appendChild(div);
 
  toggleCart();
 }
 
-function removeItem(btn,price){
+function changeQty(btn,price,change){
 
- total-=price;
- count--;
+ const item = btn.parentElement;
+ const qtySpan = item.querySelector('.qty');
+ let qty = parseInt(qtySpan.innerText);
+
+ qty += change;
+
+ if(qty <= 0){
+     total -= price;
+     count--;
+     item.remove();
+ }else{
+     total += price * change;
+     count += change;
+     qtySpan.innerText = qty;
+ }
 
  if(total<0) total=0;
  if(count<0) count=0;
 
  document.getElementById('total').innerText=total.toFixed(2);
  document.getElementById('cartCount').innerText=count;
-
- btn.parentElement.remove();
 }
 
 /* ACESSIBILIDADE */
