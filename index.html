@@ -10,9 +10,11 @@
 /* ================= ROOT ================= */
 
 :root{
- --lilas:#c8a2ff;
- --lilas2:#a97cff;
- --lilasEscuro:#7c3aed;
+ --vinho:#7a0f1e;
+ --vinho2:#a61e34;
+ --vinhoEscuro:#4a0812;
+ --cinza:#f5f5f7;
+ --cinza2:#ececf0;
 }
 
 /* ================= BASE ================= */
@@ -21,6 +23,7 @@ body{
  margin:0;
  font-family:Segoe UI, sans-serif;
  background:white;
+ color:#333;
  transition:background .4s,color .4s;
 }
 
@@ -30,61 +33,96 @@ header{
  display:flex;
  justify-content:space-between;
  align-items:center;
- padding:12px 40px;
- background:linear-gradient(90deg,#efe9ff,#ffffff);
- box-shadow:0 2px 10px rgba(0,0,0,0.06);
+ padding:14px 40px;
+ background:linear-gradient(90deg,var(--cinza),#ffffff);
+ box-shadow:0 6px 20px rgba(0,0,0,0.05);
  position:sticky;
  top:0;
  z-index:999;
+ backdrop-filter:blur(6px);
 }
 
-#mainLogo{height:150px;}
+#mainLogo{
+ height:150px;
+}
 
-nav{display:flex;align-items:center;gap:20px;}
+/* ================= MENU ================= */
+
+nav{
+ display:flex;
+ align-items:center;
+ gap:22px;
+}
 
 nav a{
  text-decoration:none;
- color:#555;
+ color:#444;
  font-weight:600;
+ transition:.3s;
 }
 
-nav a:hover{color:var(--lilas2);}
+nav a:hover{
+ color:var(--vinho2);
+}
 
 /* ================= BOTÕES ================= */
 
 .top-btn{
- background:#eee;
+ background:var(--cinza2);
  border:none;
- color:#444;
- padding:8px 16px;
- border-radius:20px;
+ color:#333;
+ padding:9px 18px;
+ border-radius:30px;
  cursor:pointer;
+ transition:.3s;
+}
+
+.top-btn:hover{
+ background:#e0e0e6;
 }
 
 button{
- background:var(--lilas2);
+ background:linear-gradient(135deg,var(--vinho),var(--vinho2));
  border:none;
  color:white;
- padding:12px 20px;
+ padding:12px 22px;
  border-radius:12px;
  cursor:pointer;
+ font-weight:600;
+ transition:all .25s ease;
+}
+
+button:hover{
+ transform:translateY(-2px);
+ box-shadow:0 6px 16px rgba(0,0,0,.2);
 }
 
 /* ================= HERO ================= */
 
 .hero{
- background:linear-gradient(90deg,var(--lilas),white);
- padding:100px 40px;
+ background:linear-gradient(120deg,var(--vinho),#ffffff);
+ padding:110px 40px;
 }
 
 /* ================= CATEGORIAS ================= */
 
-.cat-grid{display:flex;gap:15px;flex-wrap:wrap;}
+.cat-grid{
+ display:flex;
+ gap:15px;
+ flex-wrap:wrap;
+}
 
 .cat-grid div{
- background:#f3ecff;
- padding:20px;
+ background:var(--cinza);
+ padding:22px;
  border-radius:16px;
+ font-weight:600;
+ transition:.3s;
+}
+
+.cat-grid div:hover{
+ transform:translateY(-4px);
+ box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
 /* ================= PRODUTOS ================= */
@@ -95,16 +133,29 @@ button{
  flex-wrap:wrap;
 }
 
+/* ================= CARD PREMIUM ================= */
+
 .card{
  width:250px;
  background:white;
- border-radius:18px;
- padding:15px;
- box-shadow:0 6px 20px rgba(0,0,0,.08);
+ border-radius:20px;
+ padding:16px;
  text-align:center;
+ border:1px solid rgba(0,0,0,.04);
+ box-shadow:0 8px 25px rgba(0,0,0,.06);
+ transition:all .3s ease;
 }
 
-.card img{width:100%;border-radius:12px;}
+.card:hover{
+ transform:translateY(-8px);
+ box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.card img{
+ width:100%;
+ border-radius:14px;
+ margin-bottom:10px;
+}
 
 /* ================= GALERIA ================= */
 
@@ -115,23 +166,40 @@ button{
  padding:40px;
 }
 
-.gallery img{width:100%;border-radius:14px;}
+.gallery img{
+ width:100%;
+ border-radius:14px;
+ transition:.3s;
+}
+
+.gallery img:hover{
+ transform:scale(1.03);
+}
 
 /* ================= PROMO ================= */
 
 .promo{
- background:var(--lilas);
- padding:40px;
+ background:linear-gradient(135deg,var(--vinhoEscuro),var(--vinho));
+ padding:50px;
  text-align:center;
  color:white;
+ border-radius:20px;
+ margin:40px;
 }
 
-.about,.products,.cats{padding:60px 40px;}
+/* ================= SEÇÕES ================= */
+
+.about,.products,.cats{
+ padding:70px 40px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
- background:#faf7ff;
- padding:30px;
+ background:var(--cinza);
+ padding:35px;
  text-align:center;
+ color:#444;
 }
 
 /* ================= CART ================= */
@@ -143,18 +211,20 @@ footer{
  width:340px;
  height:100%;
  background:white;
- box-shadow:-4px 0 20px rgba(0,0,0,.2);
+ box-shadow:-6px 0 25px rgba(0,0,0,.15);
  padding:20px;
  transition:.4s;
  z-index:2000;
  overflow:auto;
 }
 
-.cart.open{right:0;}
+.cart.open{
+ right:0;
+}
 
 .cart-item{
  border-bottom:1px solid #eee;
- padding:10px 0;
+ padding:12px 0;
 }
 
 .total{
@@ -169,16 +239,21 @@ footer{
  position:fixed;
  right:22px;
  bottom:22px;
- padding:14px 22px;
+ padding:14px 24px;
  border-radius:30px;
  border:none;
- background:linear-gradient(135deg,#7c3aed,#a97cff);
+ background:linear-gradient(135deg,var(--vinho),var(--vinho2));
  color:white;
  font-size:15px;
  font-weight:600;
  cursor:pointer;
  z-index:9999;
- box-shadow:0 8px 25px rgba(0,0,0,.25);
+ box-shadow:0 10px 30px rgba(0,0,0,.25);
+ transition:.3s;
+}
+
+.a11y-btn:hover{
+ transform:scale(1.05);
 }
 
 .a11y-panel{
@@ -188,7 +263,7 @@ footer{
  background:white;
  padding:20px;
  border-radius:18px;
- box-shadow:0 20px 45px rgba(0,0,0,.3);
+ box-shadow:0 20px 45px rgba(0,0,0,.25);
  opacity:0;
  pointer-events:none;
  transition:.35s;
@@ -199,17 +274,40 @@ footer{
  pointer-events:auto;
 }
 
+/* ================= ALTO CONTRASTE ================= */
+
 body.high-contrast{
- background:#140f24;
+ background:#140406;
  color:white;
 }
 
-body.high-contrast header{background:#1c1533;}
-body.high-contrast .card{background:#221a3d;color:white;}
-body.high-contrast .cat-grid div{background:#221a3d;color:white;}
-body.high-contrast .promo{background:#2d2152;}
-body.high-contrast footer{background:#1c1533;}
-body.high-contrast button{background:#8b5cf6;}
+body.high-contrast header{
+ background:#20070c;
+}
+
+body.high-contrast .card{
+ background:#20070c;
+ color:white;
+}
+
+body.high-contrast .cat-grid div{
+ background:#20070c;
+ color:white;
+}
+
+body.high-contrast .promo{
+ background:#320c14;
+}
+
+body.high-contrast footer{
+ background:#20070c;
+}
+
+body.high-contrast button{
+ background:#a61e34;
+}
+
+/* ================= LEITURA ================= */
 
 .reading-mode{
  max-width:700px;
