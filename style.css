@@ -1,7 +1,9 @@
 :root{
-  --vinho:#6b0f1a;
-  --vinho2:#8a1c2a;
-  --cinza:#f2f2f2;
+ --rosa:#e75480;
+ --roxo:#8b5cf6;
+ --roxoEscuro:#6d28d9;
+ --lilas:#f3e8ff;
+ --fundo:#fff5f7;
 }
 
 body{
@@ -16,7 +18,7 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:10px 40px;
-  background:linear-gradient(90deg,#f2f2f2,#ffffff);
+  background:linear-gradient(90deg,var(--lilas),white);
   box-shadow:0 2px 10px rgba(0,0,0,0.06);
   position:sticky;
   top:0;
@@ -45,7 +47,7 @@ nav a:hover{
 
 /* HERO */
 .hero{
-  background:linear-gradient(90deg,var(--vinho),#ffffff);
+ background:linear-gradient(120deg,var(--rosa),var(--lilas));
   padding:100px 40px;
   color:white;
   transition:background .45s ease;
@@ -53,7 +55,7 @@ nav a:hover{
 
 /* BOTÕES */
 .hero button, .card button{
-  background:var(--vinho2);
+  background:linear-gradient(135deg,var(--roxo),var(--rosa));
   border:none;
   color:white;
   padding:12px 20px;
@@ -75,7 +77,7 @@ nav a:hover{
 }
 
 .cat-grid div{
-  background:var(--cinza);
+  background:var(--lilas);
   padding:20px;
   border-radius:16px;
   transition:.25s, background .45s ease;
@@ -110,7 +112,7 @@ nav a:hover{
 
 /* PROMO */
 .promo{
-  background:var(--vinho);
+  background:linear-gradient(135deg,var(--roxoEscuro),var(--rosa));
   padding:40px;
   text-align:center;
   color:white;
@@ -124,7 +126,7 @@ nav a:hover{
 
 /* footer */
 footer{
-  background:var(--cinza);
+  background:var(--lilas);
   padding:30px;
   text-align:center;
   transition:background .45s ease;
