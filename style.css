@@ -1,14 +1,13 @@
 :root{
-  --lilas:#c8a2ff;
-  --lilas2:#a97cff;
+  --vinho:#6b0f1a;
+  --vinho2:#8a1c2a;
+  --cinza:#f2f2f2;
 }
 
 body{
   margin:0;
   font-family:Segoe UI, sans-serif;
   background:white;
-
-  /* animação suave global */
   transition:background .45s ease,color .45s ease;
 }
 
@@ -17,12 +16,11 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:10px 40px;
-  background:linear-gradient(90deg,#efe9ff,#ffffff);
+  background:linear-gradient(90deg,#f2f2f2,#ffffff);
   box-shadow:0 2px 10px rgba(0,0,0,0.06);
   position:sticky;
   top:0;
   z-index:999;
-
   transition:background .45s ease;
 }
 
@@ -36,25 +34,26 @@ header{
 nav a{
   margin:0 15px;
   text-decoration:none;
-  color:#555;
+  color:#444;
   font-weight:600;
   transition:.25s;
 }
 
 nav a:hover{
-  color:var(--lilas2);
+  color:var(--vinho2);
 }
 
 /* HERO */
 .hero{
-  background:linear-gradient(90deg,var(--lilas),white);
+  background:linear-gradient(90deg,var(--vinho),#ffffff);
   padding:100px 40px;
+  color:white;
   transition:background .45s ease;
 }
 
 /* BOTÕES */
 .hero button, .card button{
-  background:var(--lilas2);
+  background:var(--vinho2);
   border:none;
   color:white;
   padding:12px 20px;
@@ -65,7 +64,7 @@ nav a:hover{
 
 .hero button:hover,.card button:hover{
   transform:scale(1.05);
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  box-shadow:0 6px 18px rgba(0,0,0,.2);
 }
 
 /* categorias */
@@ -76,7 +75,7 @@ nav a:hover{
 }
 
 .cat-grid div{
-  background:#f3ecff;
+  background:var(--cinza);
   padding:20px;
   border-radius:16px;
   transition:.25s, background .45s ease;
@@ -84,6 +83,7 @@ nav a:hover{
 
 .cat-grid div:hover{
   transform:translateY(-4px);
+  background:#e6e6e6;
 }
 
 /* produtos */
@@ -110,7 +110,7 @@ nav a:hover{
 
 /* PROMO */
 .promo{
-  background:var(--lilas);
+  background:var(--vinho);
   padding:40px;
   text-align:center;
   color:white;
@@ -124,7 +124,7 @@ nav a:hover{
 
 /* footer */
 footer{
-  background:#faf7ff;
+  background:var(--cinza);
   padding:30px;
   text-align:center;
   transition:background .45s ease;
@@ -132,7 +132,7 @@ footer{
 
 
 /* ========================= */
-/* ⭐ BOTÃO NETFLIX STYLE ⭐ */
+/* ⭐ BOTÃO ACESSIBILIDADE ⭐ */
 /* ========================= */
 
 .a11y-btn{
@@ -143,7 +143,7 @@ footer{
  height:60px;
  border-radius:50%;
  border:none;
- background:linear-gradient(135deg,#7c3aed,#a97cff);
+ background:linear-gradient(135deg,#6b0f1a,#8a1c2a);
  color:white;
  font-size:26px;
  cursor:pointer;
@@ -157,7 +157,7 @@ footer{
  box-shadow:0 12px 35px rgba(0,0,0,.45);
 }
 
-/* painel animado */
+/* painel */
 .a11y-panel{
  position:fixed;
  right:22px;
@@ -166,14 +166,12 @@ footer{
  padding:20px;
  border-radius:18px;
  box-shadow:0 20px 45px rgba(0,0,0,.3);
-
  opacity:0;
  transform:translateY(20px) scale(.95);
  pointer-events:none;
  transition:.35s;
 }
 
-/* aberto */
 .a11y-panel.open{
  opacity:1;
  transform:translateY(0) scale(1);
@@ -182,15 +180,15 @@ footer{
 
 
 /* ========================================= */
-/* ⭐ ALTO CONTRASTE LILÁS PROFISSIONAL ⭐ */
+/* ⭐ ALTO CONTRASTE VINHO ⭐ */
 /* ========================================= */
 
 body.high-contrast{
-  background:#140f24;
+  background:#1a0b0e;
   color:white;
 }
 
-body.high-contrast header{ background:#1c1533; }
+body.high-contrast header{ background:#2a0f14; }
 
 body.high-contrast h1,
 body.high-contrast h2,
@@ -202,30 +200,30 @@ body.high-contrast span{
 }
 
 body.high-contrast .card{
-  background:#221a3d;
+  background:#2a0f14;
   color:white;
   box-shadow:0 6px 20px rgba(0,0,0,.6);
 }
 
 body.high-contrast .cat-grid div{
-  background:#221a3d;
+  background:#2a0f14;
   color:white;
 }
 
 body.high-contrast .promo{
-  background:#2d2152;
+  background:#3a141b;
 }
 
 body.high-contrast footer{
-  background:#1c1533;
+  background:#2a0f14;
 }
 
 body.high-contrast a{
-  color:#d8b4fe;
+  color:#fca5a5;
 }
 
 body.high-contrast button{
-  background:#8b5cf6;
+  background:#8a1c2a;
 }
 
 /* leitura */
